@@ -11,6 +11,7 @@
 "use strict";
 
 var pattern_assembler = function () {
+  var Handlebars = require('handlebars');
 
   // returns any patterns that match {{> value:mod }} or {{> value:mod(foo:"bar") }} within the pattern
   function findPartialsWithStyleModifiers(pattern) {
@@ -68,8 +69,6 @@ var pattern_assembler = function () {
   }
 
   function renderPattern(template, data, partials) {
-    var Handlebars = require('handlebars');
-
     if (partials) {
       Object.keys(partials).forEach(function(partial) {
         Handlebars.registerPartial(partial, partials[partial]);
