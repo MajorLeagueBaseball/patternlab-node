@@ -10,8 +10,14 @@
 
 "use strict";
 
-var pattern_assembler = function () {
+var pattern_assembler = function (options) {
+  options = Object.assign({
+    helpers: {}
+  }, options);
+
   var Handlebars = require('handlebars');
+
+  Handlebars.registerHelper(options.helpers);
 
   // returns any patterns that match {{> value:mod }} or {{> value:mod(foo:"bar") }} within the pattern
   function findPartialsWithStyleModifiers(pattern) {
