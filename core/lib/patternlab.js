@@ -8,8 +8,10 @@
  *
  */
 
-var patternlab_engine = function (config) {
+var patternlab_engine = function (config, options) {
   'use strict';
+
+  options = options || {};
 
   var path = require('path'),
     JSON5 = require('json5'),
@@ -79,7 +81,7 @@ var patternlab_engine = function (config) {
 
     setCacheBust();
 
-    var pattern_assembler = new pa(),
+    var pattern_assembler = new pa(options.patternAssembler),
       entity_encoder = new he(),
       pattern_exporter = new pe(),
       lineage_hunter = new lh(),
