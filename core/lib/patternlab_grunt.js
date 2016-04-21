@@ -12,7 +12,7 @@ var patternlab_engine = require('./patternlab.js');
 
 module.exports = function (grunt) {
   grunt.registerTask('patternlab', 'create design systems with atomic design', function (arg) {
-    var patternlab = patternlab_engine();
+    var patternlab = patternlab_engine(undefined, grunt.config.get('patternlab'));
 
     if (arguments.length === 0) {
       patternlab.build(true);
