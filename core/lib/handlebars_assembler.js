@@ -125,6 +125,8 @@ var pattern_assembler = function () {
       switch (key) {
         case patternlab.patterns[i].subdir + '/' + patternlab.patterns[i].fileName:
         case patternlab.patterns[i].subdir + '/' + patternlab.patterns[i].fileName + '.mustache':
+        case patternlab.patterns[i].subdir + '/' + patternlab.patterns[i].fileName + '.handlebars':
+        case patternlab.patterns[i].subdir + '/' + patternlab.patterns[i].fileName + '.hbs':
           return patternlab.patterns[i];
       }
     }
@@ -167,7 +169,7 @@ var pattern_assembler = function () {
     }
 
     //can ignore all non-mustache files at this point
-    if (ext !== '.mustache') {
+    if (ext !== '.mustache' && ext !== '.handlebars' && ext !== '.hbs') {
       return;
     }
 
