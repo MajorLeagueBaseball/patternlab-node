@@ -64,7 +64,6 @@ var pattern_assembler = function () {
     if (isNew) {
       patternlab.patterns.push(pattern);
       patternlab.partials[pattern.key] = pattern.extendedTemplate || pattern.template;
-      console.log(pattern.key);
     }
   }
 
